@@ -3,16 +3,20 @@
 # Declare an associative array for file types and their corresponding folders
 declare -A folders=(
   [Pictures]="jpg jpeg png gif bmp tiff svg webp"
-  [Documents]="pdf doc docx xls xlsx ppt pptx txt odt rtf"
+  [Documents]="pdf doc docx xls xlsx ppt pptx txt odt rtf yml yaml PDF csv json JPG md drawio"
   [Archives]="zip tar gz bz2 7z rar"
   [Music]="mp3 wav ogg flac m4a aac"
-  [Videos]="mp4 mkv avi flv mov wmv webm"
-  [Scripts]="sh py pl rb js php"
+  [Videos]="mp4 mkv avi flv mov wmv webm MOV"
+  [Scripts]="h c ino sh py pl rb bat"
+  [Web]="php js html css"
   [Packages]="deb rpm pkg tgz tar.xz"
   [ISOs]="iso img"
-  [Executables]="exe out run AppImage bin"
+  [Executables]="msi exe out run AppImage bin"
+  [E-Books]="epub"
+  [3D-Models]="step stp stl curaprofile"
   [Fonts]="ttf otf woff woff2 eot"
   [Configs]="conf ini yaml yml"
+  [Failed]="part"
   [Others]=""  # Catch-all for unspecified file types
 )
 
