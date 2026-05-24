@@ -13,9 +13,11 @@ A powerful and fast Bash script to automatically organize cluttered directories.
 
 ## 🛠️ Installation
 
-1. Clone the repository anywhere on your system:
+1. Clone the repository anywhere on your system and make it executable:
    ```bash
    git clone https://github.com/TechanisYT/autosort.git ~/Programs/Scripts/autosort
+   cd ~/Programs/Scripts/autosort
+   chmod +x autosort.sh
    ```
 
 2. (Optional but Recommended) Create an alias in your `~/.bashrc` or `~/.zshrc` so you can run it from any folder:
