@@ -31,7 +31,7 @@ for category in "${!folders[@]}"; do
 done
 
 # List of protected directories
-protected_dirs=("/" "/etc" "/bin" "/sbin" "/usr" "/var" "/lib" "/lib64" "/dev" "/sys" "/proc" "/run" "/boot" "/opt" "/mnt" "/srv" "$HOME")
+protected_dirs=("/etc" "/bin" "/sbin" "/usr" "/var" "/lib" "/lib64" "/dev" "/sys" "/proc" "/run" "/boot" "/opt" "/mnt" "/srv")
 
 target_dir="$(pwd)"
 log_file="$target_dir/sort_log.txt"
@@ -66,6 +66,14 @@ usage() {
 is_protected_dir() {
   local dir
   dir="$(realpath -q "$1" 2>/dev/null || echo "$1")"
+  
+  # Protect the exact home directory and root to prevent moving important base folders
+  local home_real
+  home_real="$(realpath -q "$HOME" 2>/dev/null || echo "$HOME")"
+  if [[ "$dir" == "$home_real" || "$dir" == "/" ]]; then
+    return 0
+  fi
+
   for p in "${protected_dirs[@]}"; do
     local p_real
     p_real="$(realpath -q "$p" 2>/dev/null || echo "$p")"
